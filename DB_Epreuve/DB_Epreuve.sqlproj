@@ -62,5 +62,8 @@
     <Build Include="Tables\Utilisateur.sql" />
     <Build Include="Tables\Jeux.sql" />
     <Build Include="Tables\Emprunt.sql" />
+    <Build Include="Tables\Tag.sql" />
+    <Build Include="Tables\Jeux_Tag.sql" />
+    <Build Include="Tables\Jeux_Utilisateur.sql" />
   </ItemGroup>
 </Project>

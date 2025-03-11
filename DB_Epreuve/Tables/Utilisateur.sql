@@ -7,4 +7,8 @@
 	[Pseudo] NVARCHAR (64) NOT NULL,
 	[CreatedAt]  DATETIME2 NOT NULL DEFAULT GETDATE(),
     [DisabledAt] DATETIME2,
+	CONSTRAINT UQ_Email UNIQUE ([Email]),
+	CONSTRAINT UQ_Pseudo UNIQUE ([Pseudo])
+
+
 )
