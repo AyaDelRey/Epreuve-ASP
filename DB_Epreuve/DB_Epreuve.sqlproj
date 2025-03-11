@@ -59,6 +59,7 @@
     <Folder Include="Tables" />
     <Folder Include="Stored_Procedures" />
     <Folder Include="Functions" />
+    <Folder Include="Script" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Utilisateur.sql" />
@@ -81,5 +82,11 @@
     <Build Include="Stored_Procedures\SP_Get_Jeux_By_Tag.sql" />
     <Build Include="Functions\SF_SaltAndHash.sql" />
     <Build Include="Stored_Procedures\SP_Check_Password.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB_Epreuve.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script\Script.PostDeployment.Main.sql" />
   </ItemGroup>
 </Project>
