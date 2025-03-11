@@ -9,4 +9,5 @@
     [NbJoueurMax] INT CHECK ([NbJoueurMax] >= [NbJoueurMin]) NOT NULL, -- Nombre maximum de joueurs (>= NbJoueurMin)
     [DureeMinute] DECIMAL(3, 1) CHECK ([DureeMinute] >= 0),   -- Durée approximative en minutes
     [DateCreation] DATE DEFAULT GETDATE() NOT NULL  -- Date de création de l'enregistrement
+    CONSTRAINT PK_Jeux PRIMARY KEY ([Jeu_Id])
 )

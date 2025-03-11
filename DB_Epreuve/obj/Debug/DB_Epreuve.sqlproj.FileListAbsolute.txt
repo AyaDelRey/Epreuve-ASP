@@ -1,0 +1,8 @@
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\bin\Debug\DB_Epreuve.dacpac
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\DB_Epreuve.sqlproj.AssemblyReference.cache
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\Model.xml
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\refactor.xml
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\postdeploy.sql
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\predeploy.sql
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\DB_Epreuve.dll
+C:\Users\m.chanu\source\repos\Epreuve_ASP\DB_Epreuve\obj\Debug\DB_Epreuve.pdb

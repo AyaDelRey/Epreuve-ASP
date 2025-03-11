@@ -8,7 +8,8 @@
 	[CreatedAt]  DATETIME2 NOT NULL DEFAULT GETDATE(),
     [DisabledAt] DATETIME2,
 	CONSTRAINT UQ_Email UNIQUE ([Email]),
-	CONSTRAINT UQ_Pseudo UNIQUE ([Pseudo])
+	CONSTRAINT UQ_Pseudo UNIQUE ([Pseudo]),
+	CONSTRAINT PK_Utilisateur PRIMARY KEY ([Utilisateur_Id])
 
 
 )
