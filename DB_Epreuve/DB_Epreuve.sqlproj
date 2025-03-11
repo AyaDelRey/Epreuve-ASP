@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Stored_Procedures" />
+    <Folder Include="Functions" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Utilisateur.sql" />
@@ -78,5 +79,7 @@
     <Build Include="Stored_Procedures\SP_Cloturer_Emprunt.sql" />
     <Build Include="Stored_Procedures\SP_Get_Jeux_Utilisateur.sql" />
     <Build Include="Stored_Procedures\SP_Get_Jeux_By_Tag.sql" />
+    <Build Include="Functions\SF_SaltAndHash.sql" />
+    <Build Include="Stored_Procedures\SP_Check_Password.sql" />
   </ItemGroup>
 </Project>
