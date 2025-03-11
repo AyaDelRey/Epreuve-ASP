@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Tables" />
+    <Folder Include="Stored_Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Utilisateur.sql" />
@@ -65,5 +66,17 @@
     <Build Include="Tables\Tag.sql" />
     <Build Include="Tables\Jeux_Tag.sql" />
     <Build Include="Tables\Jeux_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Create_Jeu.sql" />
+    <Build Include="Stored_Procedures\SP_Get_Jeu.sql" />
+    <Build Include="Stored_Procedures\SP_Update_Jeu.sql" />
+    <Build Include="Stored_Procedures\SP_Delete_Jeu.sql" />
+    <Build Include="Stored_Procedures\SP_Create_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Get_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Update_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Delete_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Create_Emprunt.sql" />
+    <Build Include="Stored_Procedures\SP_Cloturer_Emprunt.sql" />
+    <Build Include="Stored_Procedures\SP_Get_Jeux_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Get_Jeux_By_Tag.sql" />
   </ItemGroup>
 </Project>

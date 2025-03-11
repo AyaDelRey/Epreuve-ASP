@@ -1,0 +1,6 @@
+﻿CREATE PROCEDURE [dbo].[SP_Get_Jeu]
+    @Jeu_Id UNIQUEIDENTIFIER
+AS
+BEGIN
+    SELECT * FROM dbo.Jeux WHERE Jeu_Id = @Jeu_Id;
+END;
