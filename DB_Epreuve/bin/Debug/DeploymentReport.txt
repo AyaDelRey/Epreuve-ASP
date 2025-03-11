@@ -1,0 +1,57 @@
+﻿** Highlights
+     Tables that will be recreated with data migrated
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Emprunt] (Table)
+       [dbo].[Jeux] (Table)
+       [dbo].[Jeux_Tag] (Table)
+       [dbo].[Jeux_Utilisateur] (Table)
+       [dbo].[Tag] (Table)
+       [dbo].[Utilisateur] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Emprunt] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Jeux] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Jeux] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Jeux_Tag] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Jeux_Utilisateur] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Jeux_Utilisateur] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Tag] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Utilisateur] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Utilisateur] (Default Constraint)
+       [dbo].[FK_Emprunt_Jeux_Utilisateur] (Foreign Key)
+       [dbo].[FK_Emprunt_Utilisateur] (Foreign Key)
+       [dbo].[FK_Jeux_Tags_Jeu] (Foreign Key)
+       [dbo].[FK_Jeux_Tags_Tag] (Foreign Key)
+       [dbo].[FK_Utilisateur_Jeux_Utilisateur] (Foreign Key)
+       [dbo].[FK_Utilisateur_Jeux_Jeux] (Foreign Key)
+       Check Constraint: unnamed constraint on [dbo].[Emprunt] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Emprunt] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Jeux] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Jeux] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Jeux] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Jeux] (Check Constraint)
+       Check Constraint: unnamed constraint on [dbo].[Jeux] (Check Constraint)
+       [dbo].[CK_Etat_Jeu] (Check Constraint)
+       [dbo].[SF_SaltAndHash] (Function)
+       [dbo].[SP_Check_Password] (Procedure)
+       [dbo].[SP_Cloturer_Emprunt] (Procedure)
+       [dbo].[SP_Create_Emprunt] (Procedure)
+       [dbo].[SP_Create_Jeu] (Procedure)
+       [dbo].[SP_Create_Utilisateur] (Procedure)
+       [dbo].[SP_Delete_Jeu] (Procedure)
+       [dbo].[SP_Delete_Utilisateur] (Procedure)
+       [dbo].[SP_Get_Jeu] (Procedure)
+       [dbo].[SP_Get_Jeux_By_Tag] (Procedure)
+       [dbo].[SP_Get_Jeux_Utilisateur] (Procedure)
+       [dbo].[SP_Get_Utilisateur] (Procedure)
+       [dbo].[SP_Update_Jeu] (Procedure)
+       [dbo].[SP_Update_Utilisateur] (Procedure)
+
+** Supporting actions
