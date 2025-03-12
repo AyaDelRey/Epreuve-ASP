@@ -1,14 +1,15 @@
 ﻿using System;
 
+
 namespace BLL.Entities
 {
     public class JeuxUtilisateur
     {
-        public Guid Jeux_Utilisateur_Id { get; }
-        public Guid Utilisateur_Id { get; }
-        public Guid Jeu_Id { get; }
-        public DateTime? DateAcquisition { get; }
-        public string Etat { get; }
+        public Guid Jeux_Utilisateur_Id { get; set; }
+        public Guid Utilisateur_Id { get; set; }
+        public Guid Jeu_Id { get; set; }
+        public DateTime? DateAcquisition { get; set; }
+        public string Etat { get; set; }
 
         public JeuxUtilisateur(Guid jeuxUtilisateurId, Guid utilisateurId, Guid jeuId, DateTime? dateAcquisition, string etat)
         {
