@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ASP_MVC.Models.Jeu.JeuListItem>
+
+@{
+    ViewData["Title"] = "Liste des jeux";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a href="@Url.Action("Create", "Jeu")" class="btn btn-primary">Ajouter un jeu</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nom)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jeu in Model)
+        {
+            <tr>
+                <td>@jeu.Nom</td>
+                <td>@jeu.Description</td>
+                <td>
+                    <a href="@Url.Action("Details", "Jeu", new { id = jeu.Jeu_Id })" class="btn btn-info">Voir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

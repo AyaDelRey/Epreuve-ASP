@@ -1,5 +1,7 @@
 ﻿using BLL.Entities;
-using D = DAL.Entities;
+using DAL.Entities;
+using D = DAL.Entities;  // Alias pour DAL.Entities
+using B = BLL.Entities;  // Alias pour BLL.Entities
 
 namespace BLL.Mappers
 {
@@ -7,11 +9,11 @@ namespace BLL.Mappers
     {
         #region Jeux
         // Conversion de l'entité DAL.Jeu vers BLL.Jeu
-        public static Jeu ToBLL(this D.Jeu jeu)
+        public static B.Jeu ToBLL(this D.Jeu jeu)
         {
             if (jeu is null) throw new ArgumentNullException(nameof(jeu));
 
-            return new Jeu(
+            return new B.Jeu(
                 jeu.Jeu_Id,                // Identifiant du jeu
                 jeu.Nom,                   // Nom du jeu
                 jeu.Description,           // Description du jeu
@@ -25,7 +27,7 @@ namespace BLL.Mappers
         }
 
         // Conversion de l'entité BLL.Jeu vers DAL.Jeu
-        public static D.Jeu ToDAL(this Jeu jeu)
+        public static D.Jeu ToDAL(this B.Jeu jeu)
         {
             if (jeu is null) throw new ArgumentNullException(nameof(jeu));
 
@@ -43,5 +45,67 @@ namespace BLL.Mappers
             };
         }
         #endregion
+
+        #region Utilisateurs
+        // Conversion de l'entité DAL.Utilisateur vers BLL.Utilisateur
+        public static B.Utilisateur ToBLL(this D.Utilisateur utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+
+            return new B.Utilisateur(
+                utilisateur.Utilisateur_Id,         // Identifiant unique
+                utilisateur.Email,                  // Adresse email
+                utilisateur.Password,               // Mot de passe (doit être haché et sécurisé)
+                utilisateur.Pseudo,                 // Pseudonyme
+                utilisateur.CreatedAt,              // Date de création
+                utilisateur.DisabledAt              // Date de désactivation (nullable)
+            );
+        }
+
+        // Conversion de l'entité BLL.Utilisateur vers DAL.Utilisateur
+        public static D.Utilisateur ToDAL(this B.Utilisateur utilisateur)
+        {
+            if (utilisateur is null) throw new ArgumentNullException(nameof(utilisateur));
+
+            return new D.Utilisateur()
+            {
+                Utilisateur_Id = utilisateur.Utilisateur_Id, // Identifiant unique
+                Email = utilisateur.Email,                   // Adresse email
+                Password = utilisateur.Password,             // Mot de passe (doit être sécurisé)
+                Pseudo = utilisateur.Pseudo,                 // Pseudonyme
+                CreatedAt = utilisateur.CreatedAt,           // Date de création
+                DisabledAt = utilisateur.DisabledAt          // Date de désactivation (nullable)
+            };
+        }
+        #endregion
+
+        // Mapping Jeux_Utilisateur DAL -> BLL
+        public static JeuxUtilisateur ToBLL(this D.Jeux_Utilisateur entity)
+        {
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+
+            return new JeuxUtilisateur(
+                entity.Jeux_Utilisateur_Id,
+                entity.Utilisateur_Id,
+                entity.Jeu_Id,
+                entity.DateAcquisition,
+                entity.Etat
+            );
+        }
+
+        // Mapping Jeux_Utilisateur BLL -> DAL
+        public static D.Jeux_Utilisateur ToDAL(this JeuxUtilisateur entity)
+        {
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+
+            return new D.Jeux_Utilisateur
+            {
+                Jeux_Utilisateur_Id = entity.Jeux_Utilisateur_Id,
+                Utilisateur_Id = entity.Utilisateur_Id,
+                Jeu_Id = entity.Jeu_Id,
+                DateAcquisition = entity.DateAcquisition,
+                Etat = entity.Etat
+            };
+        }
     }
 }
