@@ -16,6 +16,26 @@ namespace DAL.Services
     {
         public JeuService(IConfiguration config) : base(config, "Main-DB") { }
 
+        public IEnumerable<Jeu> GetFromUser(Guid utilisateur_id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Get_Jeu_Utilisateur";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue(nameof(utilisateur_id), utilisateur_id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToJeu();
+                        }
+                    }
+                }
+            }
+        }
         public void Delete(Guid jeu_id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))

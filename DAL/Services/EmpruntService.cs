@@ -16,7 +16,26 @@ namespace DAL.Services
     {
         public EmpruntService(IConfiguration config) : base(config, "Main-DB") { }
 
-
+        public IEnumerable<Emprunt> GetFromUser(Guid utilisateur_id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Get_Emprunt_ByUser";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue(nameof(utilisateur_id), utilisateur_id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToEmprunt();
+                        }
+                    }
+                }
+            }
+        }
         public IEnumerable<Emprunt> Get()
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -101,6 +120,11 @@ namespace DAL.Services
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public void Delete(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

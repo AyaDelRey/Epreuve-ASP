@@ -16,6 +16,10 @@ namespace DAL.Services
     {
         public TagService(IConfiguration config) : base(config, "Main-DB") { }
 
+        public void Delete(Guid id)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<Tag> Get()
         {
@@ -62,6 +66,11 @@ namespace DAL.Services
             }
         }
 
+        public IEnumerable<Tag> GetFromUser(Guid utilisateur_id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Guid Insert(Tag tag)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -75,6 +84,11 @@ namespace DAL.Services
                     return (Guid)command.ExecuteScalar();
                 }
             }
+        }
+
+        public void Update(Guid id, Tag entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

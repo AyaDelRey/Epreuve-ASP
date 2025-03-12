@@ -89,6 +89,7 @@
     <Build Include="Stored_Procedures\SP_Get_All_Tag.sql" />
     <Build Include="Stored_Procedures\SP_GetById_Tag.sql" />
     <Build Include="Stored_Procedures\SP_Create_Tag.sql" />
+    <Build Include="Stored_Procedures\SP_Get_Emprunt_ByUser.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_Epreuve.publish.xml" />
