@@ -82,6 +82,13 @@
     <Build Include="Stored_Procedures\SP_Get_Jeux_By_Tag.sql" />
     <Build Include="Functions\SF_SaltAndHash.sql" />
     <Build Include="Stored_Procedures\SP_Check_Password.sql" />
+    <Build Include="Stored_Procedures\SP_Get_All_Emprunt.sql" />
+    <Build Include="Stored_Procedures\SP_GetById_Emprunt.sql" />
+    <Build Include="Stored_Procedures\SP_Get_All_Utilisateur.sql" />
+    <Build Include="Stored_Procedures\SP_Get_All_Jeu.sql" />
+    <Build Include="Stored_Procedures\SP_Get_All_Tag.sql" />
+    <Build Include="Stored_Procedures\SP_GetById_Tag.sql" />
+    <Build Include="Stored_Procedures\SP_Create_Tag.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_Epreuve.publish.xml" />

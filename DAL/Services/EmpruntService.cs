@@ -16,20 +16,6 @@ namespace DAL.Services
     {
         public EmpruntService(IConfiguration config) : base(config, "Main-DB") { }
 
-        public void Delete(Guid emprunt_id)
-        {
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SP_Emprunt_Delete";
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(nameof(emprunt_id), emprunt_id);
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
 
         public IEnumerable<Emprunt> Get()
         {
@@ -37,7 +23,7 @@ namespace DAL.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SP_Emprunt_GetAll";
+                    command.CommandText = "SP_Get_All_Emprunt";
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -57,7 +43,7 @@ namespace DAL.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SP_Emprunt_GetById";
+                    command.CommandText = "SP_GetById_Emprunt";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue(nameof(emprunt_id), emprunt_id);
                     connection.Open();

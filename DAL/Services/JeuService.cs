@@ -37,7 +37,7 @@ namespace DAL.Services
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SP_Jeu_GetAll";
+                    command.CommandText = "SP_Get_All_Jeu";
                     command.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())

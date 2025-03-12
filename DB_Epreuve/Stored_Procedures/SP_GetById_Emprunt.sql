@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[SP_Get_All_Emprunt]
+﻿CREATE PROCEDURE [dbo].[SP_GetById_Emprunt]
+    @Emprunt_Id UNIQUEIDENTIFIER
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -11,5 +12,6 @@ BEGIN
         DateRetour,
         EvaluationPreteur,
         EvaluationEmprunteur
-    FROM dbo.Emprunt;
+    FROM dbo.Emprunt
+    WHERE Emprunt_Id = @Emprunt_Id;
 END;
