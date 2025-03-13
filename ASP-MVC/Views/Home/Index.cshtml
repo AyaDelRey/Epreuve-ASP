@@ -1,8 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <div class="input-group">
+        <input type="text" name="searchQuery" class="form-control" placeholder="Rechercher un jeu par nom..." value="@Context.Request.Query["searchQuery"]" />
+        <button class="btn btn-primary" type="submit">Rechercher</button>
+    </div>
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="game-list">
+    @foreach (var jeu in Model)
+    {
+        <div class="game-item">
+            <h3>@jeu.Nom</h3>
+            <p>@jeu.Description</p> <!-- Exemple d'affichage d'une description -->
+        </div>
+    }
 </div>
