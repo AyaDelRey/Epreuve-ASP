@@ -4,6 +4,8 @@ using ASP_MVC.Models.Utilisateur;
 using Microsoft.AspNetCore.Mvc;
 using ASP_MVC.Mappers;
 using Common.Repositories;
+using ASP_MVC.Handlers.ActionFilters;
+using BLL.Entities;
 
 namespace ASP_MVC.Controllers
 {
@@ -37,6 +39,33 @@ namespace ASP_MVC.Controllers
 
             // Retour de la vue avec les détails de l'utilisateur
             return View(utilisateur);
+        }
+
+        // GET: UserController/Create
+
+        [AnonymousNeeded]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: UserController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AnonymousNeeded]
+        public ActionResult Create(UtilisateurCreateForm form)
+        {
+            try
+            {
+                if (!form.Consent) ModelState.AddModelError(nameof(form.Consent), "Vous devez lire et accepter les conditions générales d'utilisation.");
+                if (!ModelState.IsValid) throw new ArgumentException();
+                Guid id = _utilisateurRepository.Insert(form.ToBLL()); 
+                return RedirectToAction(nameof(Details), new { id = id });
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

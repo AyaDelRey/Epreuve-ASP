@@ -1,3 +1,4 @@
+using ASP_MVC.Handlers;
 using BLL.Entities;
 using BLL.Services;
 using Common.Repositories;
@@ -17,6 +18,27 @@ namespace ASP_MVC
 
             // Ajouter l'accès au HttpContext pour gérer les sessions
             builder.Services.AddHttpContextAccessor();
+
+            // Ajout d'implémentation des services nécessaires à l'utilisation de session :
+            // AddDistributedMemoryCache : Pour le développment et debbugage
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(
+                    options => {
+                                options.Cookie.Name = "CookieWad24";
+                                options.Cookie.HttpOnly = true;
+                                options.Cookie.IsEssential = true;
+                                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                                });
+            builder.Services.Configure<CookiePolicyOptions>(options => {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Secure = CookieSecurePolicy.Always;
+                                 });
+
+
+            // Ajout du service de sessionManager
+            builder.Services.AddScoped<SessionManager>();
 
             // Ajouter les services pour Jeu (BLL et DAL)
             builder.Services.AddScoped<IJeuRepository<BLL.Entities.Jeu>, BLL.Services.JeuService>();
@@ -44,6 +66,8 @@ namespace ASP_MVC
                 app.UseHsts();
             }
 
+            app.UseSession();
+            app.UseCookiePolicy();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
