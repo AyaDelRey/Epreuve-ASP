@@ -1,6 +1,7 @@
 ﻿
 using ASP_MVC.Mappers;
 using ASP_MVC.Models.Jeu;
+using ASP_MVC.Models.Jeux;
 using BLL.Entities;
 using Common.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +17,11 @@ namespace ASP_MVC.Controllers
         {
             _jeuRepository = jeuRepository ?? throw new ArgumentNullException(nameof(jeuRepository));
         }
-
+        // Action pour afficher le formulaire de création
+        public IActionResult Create()
+        {
+            return View();
+        }
         // GET: JeuController
         public ActionResult Index()
         {
@@ -35,8 +40,21 @@ namespace ASP_MVC.Controllers
             {
                 // Affiche l'exception ou redirige vers une page d'erreur avec un message spécifique
 
-                return Content($"Erreur : {ex.Message}"); 
+                return Content($"Erreur : {ex.Message}");
             }
         }
+
+        // GET: Jeu/Detail/{id}
+        public IActionResult Detail(Guid id)
+        {
+            var jeu = _jeuRepository.Get(id);
+            if (jeu == null)
+                return NotFound();
+
+            return View(jeu.ToListItem());
+        }
+
+
+
     }
 }

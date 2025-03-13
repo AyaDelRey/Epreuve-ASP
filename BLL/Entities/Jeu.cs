@@ -28,6 +28,7 @@ namespace BLL.Entities
             DurationMinutes = durationMinutes;
             CreationDate = creationDate;
         }
+
     }
 
 }

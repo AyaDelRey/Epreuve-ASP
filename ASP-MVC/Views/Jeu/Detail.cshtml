@@ -1,0 +1,20 @@
+﻿@model ASP_MVC.Models.Jeu.JeuListItem
+
+@{
+    ViewData["Title"] = "Détails du jeu";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h2>@Model.Nom</h2>
+    <p>@Model.Description</p>
+    <p>Âge Minimum : @Model.MinAge</p>
+    <p>Âge Maximum : @Model.MaxAge</p>
+    <p>Nombre de Joueurs : de @Model.MinPlayers à @Model.MaxPlayers</p>
+    <p>Durée : @Model.DurationMinutes minutes</p>
+</div>
+
+<p>
+    <a href="@Url.Action("Index", "Jeu")" class="btn btn-secondary">Retour</a>
+</p>

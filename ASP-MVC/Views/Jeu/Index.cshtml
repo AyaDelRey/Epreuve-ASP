@@ -24,6 +24,7 @@
             <tr>
                 <td>@jeu.Nom</td>
                 <td>@jeu.Description</td>
+                <td><a href="@Url.Action("Detail", "Jeu", new { id = jeu.Jeu_Id })" class="btn btn-info">Voir</a></td>
             </tr>
         }
     </tbody>

@@ -9,5 +9,6 @@ namespace Common.Repositories
     public interface IJeuRepository<TJeu> : ICRUDRepository<TJeu, Guid>
     {
         IEnumerable<TJeu> GetFromUser(Guid utilisateur_id);
+        
     }
 }
