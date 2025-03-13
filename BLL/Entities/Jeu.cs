@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 
 namespace BLL.Entities
 {
@@ -14,6 +15,13 @@ namespace BLL.Entities
         public decimal? DurationMinutes { get; set; }
         public DateOnly CreationDate { get; set; }
 
+        // Relation avec les tags via la table de liaison
+        public ICollection<JeuxTag> JeuxTags { get; set; } = new List<JeuxTag>();
+
+
+        // Les tags associés à ce jeu
+        public ICollection<Tag> Tags { get; set; }
+
         // Constructeur qui accepte 9 arguments
         public Jeu(Guid jeu_Id, string nom, string description, int minAge, int maxAge,
             int minPlayers, int maxPlayers, decimal? durationMinutes, DateOnly creationDate)
@@ -27,6 +35,10 @@ namespace BLL.Entities
             MaxPlayers = maxPlayers;
             DurationMinutes = durationMinutes;
             CreationDate = creationDate;
+
+            // Initialisation des collections
+            JeuxTags = new List<JeuxTag>();
+            Tags = new List<Tag>();
         }
 
     }

@@ -10,11 +10,13 @@ namespace BLL.Services
     public class JeuService : IJeuRepository<Jeu>
     {
         private readonly IJeuRepository<DAL.Entities.Jeu> _jeuRepository;
+        private readonly ITagRepository<DAL.Entities.Tag> _tagRepository; // Ajouter le repository pour les tags
 
-        // Constructeur qui injecte le repository DAL
-        public JeuService(IJeuRepository<DAL.Entities.Jeu> jeuRepository)
+        // Constructeur qui injecte le repository DAL pour Jeu et Tag
+        public JeuService(IJeuRepository<DAL.Entities.Jeu> jeuRepository, ITagRepository<DAL.Entities.Tag> tagRepository)
         {
             _jeuRepository = jeuRepository ?? throw new ArgumentNullException(nameof(jeuRepository));
+            _tagRepository = tagRepository ?? throw new ArgumentNullException(nameof(tagRepository));
         }
 
         // Implémentation des méthodes CRUD de l'interface IJeuRepository<Jeu>
@@ -53,5 +55,21 @@ namespace BLL.Services
             // Suppression via le repository DAL
             _jeuRepository.Delete(jeu_id);
         }
+
+        // Nouvelle méthode de recherche par nom ou par tag
+        public IEnumerable<Jeu> Search(string searchQuery)
+        {
+            // Si la recherche est vide, on retourne tous les jeux
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                return _jeuRepository.Get().Select(dal => dal.ToBLL());
+            }
+
+            // Recherche par nom de jeu uniquement
+            return _jeuRepository.Get()
+                .Where(j => j.Nom.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+                .Select(dal => dal.ToBLL());
+        }
     }
 }
+

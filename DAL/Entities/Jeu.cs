@@ -16,7 +16,13 @@ namespace DAL.Entities
         public int MinPlayers { get; set; } 
         public int MaxPlayers { get; set; } 
         public decimal? DurationMinutes { get; set; } // Correspond à [DureeMinute], nullable car non obligatoire
-        public DateTime CreationDate { get; set; } 
+        public DateTime CreationDate { get; set; }
+
+        // Relation avec les tags à travers la table de liaison
+        public ICollection<JeuxTag> JeuxTags { get; set; }
+
+        // Les tags associés à ce jeu
+        public ICollection<Tag> Tags { get; set; }
     }
 }
 

@@ -9,5 +9,6 @@ namespace Common.Repositories
     public interface ITagRepository<TTag> : ICRUDRepository<TTag, Guid>
     {
         IEnumerable<TTag> GetFromUser(Guid utilisateur_id);
+        IEnumerable<TTag> GetAll(); // Récupère tous les tags
     }
 }

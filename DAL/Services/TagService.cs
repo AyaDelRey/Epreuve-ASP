@@ -90,5 +90,27 @@ namespace DAL.Services
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Tag> GetAll()
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Get_All_Tags"; // Nom de la procédure stockée pour récupérer tous les tags
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToTag(); // Utilise le mapper pour convertir SqlDataReader en Tag
+                        }
+                    }
+                }
+            }
+        }
     }
 }

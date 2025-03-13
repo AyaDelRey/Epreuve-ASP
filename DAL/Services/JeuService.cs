@@ -140,5 +140,36 @@ namespace DAL.Services
                 }
             }
         }
+
+        // Méthode pour rechercher un jeu par nom ou par tag
+        public IEnumerable<Jeu> Search(string searchQuery)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    // On va créer une requête qui recherche par le nom et les tags.
+                    command.CommandText = @"
+                        SELECT j.*
+                        FROM Jeu j
+                        LEFT JOIN JeuxTag jt ON j.Jeu_Id = jt.Jeu_Id
+                        LEFT JOIN Tag t ON jt.Tag_Id = t.Tag_Id
+                        WHERE j.Nom LIKE @searchQuery OR t.Nom LIKE @searchQuery";
+                    command.CommandType = CommandType.Text;
+
+                    // Ajout du paramètre de recherche pour éviter les injections SQL
+                    command.Parameters.AddWithValue("@searchQuery", "%" + searchQuery + "%");
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToJeu(); // Conversion de la ligne en objet Jeu
+                        }
+                    }
+                }
+            }
+        }
     }
 }

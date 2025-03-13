@@ -9,6 +9,9 @@ namespace DAL.Entities
     public class Tag
     {
         public Guid Tag_Id { get; set; } 
-        public string Nom { get; set; } 
+        public string Nom { get; set; }
+
+        // Relation inverse avec les jeux à travers la table de liaison
+        public ICollection<JeuxTag> JeuxTags { get; set; }
     }
 }

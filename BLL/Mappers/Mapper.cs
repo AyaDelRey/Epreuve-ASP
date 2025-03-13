@@ -107,5 +107,33 @@ namespace BLL.Mappers
                 Etat = entity.Etat
             };
         }
+
+        #region Tags
+        // Conversion de l'entité DAL.Tag vers BLL.Tag
+        public static B.Tag ToBLL(this D.Tag dalTag)
+        {
+            if (dalTag is null) throw new ArgumentNullException(nameof(dalTag));
+
+            return new B.Tag
+            {
+                Tag_Id = dalTag.Tag_Id,          // Identifiant du tag
+                Nom = dalTag.Nom,                // Nom du tag
+                JeuxTags = dalTag.JeuxTags       // Assurez-vous de gérer correctement la relation avec les jeux
+            };
+        }
+
+        // Conversion de l'entité BLL.Tag vers DAL.Tag
+        public static D.Tag ToDAL(this B.Tag bllTag)
+        {
+            if (bllTag is null) throw new ArgumentNullException(nameof(bllTag));
+
+            return new D.Tag
+            {
+                Tag_Id = bllTag.Tag_Id,          // Identifiant du tag
+                Nom = bllTag.Nom,                // Nom du tag
+                JeuxTags = bllTag.JeuxTags       // Assurez-vous de gérer correctement la relation avec les jeux
+            };
+        }
+        #endregion
     }
 }

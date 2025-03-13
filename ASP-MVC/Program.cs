@@ -28,7 +28,12 @@ namespace ASP_MVC
 
             // Ajouter les services pour JeuxUtilisateur (BLL et DAL)
             builder.Services.AddScoped<IJeuxUtilisateurRepository<BLL.Entities.JeuxUtilisateur>, BLL.Services.JeuxUtilisateurService>();
-            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();  // Service DAL pour JeuxUtilisateur
+            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();  
+            // Service DAL pour JeuxUtilisateur
+            builder.Services.AddScoped<ITagRepository<BLL.Entities.Tag>, BLL.Services.TagService>();
+            builder.Services.AddScoped<ITagRepository<DAL.Entities.Tag>, DAL.Services.TagService>(); 
+            // Service DAL pour Tag
+
 
             var app = builder.Build();
 
