@@ -1,70 +1,57 @@
-﻿using BLL.Entities;
-using BLL.Mappers;
-using Common.Repositories;
+﻿using Common.Repositories;
+using BLL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using D = DAL.Entities;  // Alias pour DAL.Entities
+using BLL.Mappers;
 
 namespace BLL.Services
 {
     public class JeuService : IJeuRepository<Jeu>
     {
-        private readonly IJeuRepository<D.Jeu> _jeuRepository;  // Utilisation de D.Jeu pour spécifier le type DAL
-        private readonly IJeuxUtilisateurRepository<D.Jeux_Utilisateur> _jeuxUtilisateurRepository;  // Utilisation de D.Jeux_Utilisateur pour spécifier le type DAL
+        private readonly IJeuRepository<DAL.Entities.Jeu> _jeuRepository;
 
-        // Constructeur avec les repositories nécessaires
-        public JeuService(
-            IJeuRepository<D.Jeu> jeuRepository,  // Références avec l'alias D
-            IJeuxUtilisateurRepository<D.Jeux_Utilisateur> jeuxUtilisateurRepository  // Références avec l'alias D
-        )
+        // Constructeur qui injecte le repository DAL
+        public JeuService(IJeuRepository<DAL.Entities.Jeu> jeuRepository)
         {
             _jeuRepository = jeuRepository ?? throw new ArgumentNullException(nameof(jeuRepository));
-            _jeuxUtilisateurRepository = jeuxUtilisateurRepository ?? throw new ArgumentNullException(nameof(jeuxUtilisateurRepository));
         }
 
-        // Méthode pour supprimer un jeu
-        public void Delete(Guid jeu_id)
-        {
-            _jeuRepository.Delete(jeu_id);
-        }
-
-        // Récupérer tous les jeux
+        // Implémentation des méthodes CRUD de l'interface IJeuRepository<Jeu>
         public IEnumerable<Jeu> Get()
         {
-            // Mappage des jeux DAL vers BLL
-            return _jeuRepository.Get().Select(dal => dal.ToBLL());  // Utilisation de dal.ToBLL() pour convertir
+            // Appel du repository DAL et conversion des entités DAL en entités BLL
+            return _jeuRepository.Get().Select(dal => dal.ToBLL());
         }
 
-        // Récupérer un jeu par son identifiant
         public Jeu Get(Guid jeu_id)
         {
-            return _jeuRepository.Get(jeu_id).ToBLL();  // Utilisation de dal.ToBLL() pour convertir
+            // Appel du repository DAL et conversion de l'entité DAL en entité BLL
+            return _jeuRepository.Get(jeu_id).ToBLL();
         }
 
-        // Récupérer les jeux associés à un utilisateur spécifique
         public IEnumerable<Jeu> GetFromUser(Guid utilisateur_id)
         {
-            // Récupérer les entrées de la table Jeux_Utilisateur pour l'utilisateur donné
-            var jeuxUtilisateur = _jeuxUtilisateurRepository.GetFromUtilisateur(utilisateur_id);
-
-            // Pour chaque entrée, récupérer le jeu associé et le mapper vers BLL
-            var jeux = jeuxUtilisateur.Select(ju => _jeuRepository.Get(ju.Jeu_Id).ToBLL());
-            return jeux;
+            // Récupère les jeux associés à un utilisateur et les convertit en entités BLL
+            return _jeuRepository.GetFromUser(utilisateur_id).Select(dal => dal.ToBLL());
         }
 
-        // Insérer un nouveau jeu
         public Guid Insert(Jeu jeu)
         {
-            // Conversion de l'entité BLL en DAL avant l'insertion
-            return _jeuRepository.Insert(jeu.ToDAL());  // Conversion vers DAL avec jeu.ToDAL()
+            // Conversion de l'entité BLL en DAL et insertion via le repository DAL
+            return _jeuRepository.Insert(jeu.ToDAL());
         }
 
-        // Mettre à jour un jeu existant
         public void Update(Guid jeu_id, Jeu jeu)
         {
-            // Conversion de l'entité BLL en DAL avant la mise à jour
-            _jeuRepository.Update(jeu_id, jeu.ToDAL());  // Conversion vers DAL avec jeu.ToDAL()
+            // Conversion de l'entité BLL en DAL et mise à jour via le repository DAL
+            _jeuRepository.Update(jeu_id, jeu.ToDAL());
+        }
+
+        public void Delete(Guid jeu_id)
+        {
+            // Suppression via le repository DAL
+            _jeuRepository.Delete(jeu_id);
         }
     }
 }

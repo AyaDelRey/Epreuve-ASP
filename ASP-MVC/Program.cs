@@ -1,4 +1,8 @@
+using BLL.Entities;
+using BLL.Services;
 using Common.Repositories;
+using DAL.Entities;
+using DAL.Services;
 
 namespace ASP_MVC
 {
@@ -14,17 +18,17 @@ namespace ASP_MVC
             // Ajouter l'accès au HttpContext pour gérer les sessions
             builder.Services.AddHttpContextAccessor();
 
-            // Ajouter les services BLL et DAL pour Jeu et Utilisateur
+            // Ajouter les services pour Jeu (BLL et DAL)
             builder.Services.AddScoped<IJeuRepository<BLL.Entities.Jeu>, BLL.Services.JeuService>();
-            builder.Services.AddScoped<IJeuRepository<DAL.Entities.Jeu>, DAL.Services.JeuService>();
+            builder.Services.AddScoped<IJeuRepository<DAL.Entities.Jeu>, DAL.Services.JeuService>();  // Service DAL pour Jeu
 
+            // Ajouter les services pour Utilisateur (BLL et DAL)
             builder.Services.AddScoped<IUtilisateurRepository<BLL.Entities.Utilisateur>, BLL.Services.UtilisateurService>();
-            builder.Services.AddScoped<IUtilisateurRepository<DAL.Entities.Utilisateur>, DAL.Services.UtilisateurService>();
+            builder.Services.AddScoped<IUtilisateurRepository<DAL.Entities.Utilisateur>, DAL.Services.UtilisateurService>();  // Service DAL pour Utilisateur
 
-            // Ajouter l'enregistrement de IJeuxUtilisateurRepository et son implémentation
+            // Ajouter les services pour JeuxUtilisateur (BLL et DAL)
             builder.Services.AddScoped<IJeuxUtilisateurRepository<BLL.Entities.JeuxUtilisateur>, BLL.Services.JeuxUtilisateurService>();
-            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();
-
+            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();  // Service DAL pour JeuxUtilisateur
 
             var app = builder.Build();
 

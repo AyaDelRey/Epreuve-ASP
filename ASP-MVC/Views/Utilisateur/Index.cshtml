@@ -1,0 +1,21 @@
+﻿@model List<ASP_MVC.Models.Utilisateur.UtilisateurListItem>
+
+<h2>Utilisateurs</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Pseudo</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var utilisateur in Model)
+        {
+            <tr>
+                <td>@utilisateur.Pseudo</td>
+                <td>@utilisateur.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -11,6 +11,12 @@ namespace ASP_MVC.Controllers
     public class JeuController : Controller
     {
         private readonly IJeuRepository<Jeu> _jeuRepository;
+
+        public JeuController(IJeuRepository<Jeu> jeuRepository)
+        {
+            _jeuRepository = jeuRepository ?? throw new ArgumentNullException(nameof(jeuRepository));
+        }
+
         // GET: JeuController
         public ActionResult Index()
         {
@@ -28,7 +34,8 @@ namespace ASP_MVC.Controllers
             catch (Exception ex)
             {
                 // Affiche l'exception ou redirige vers une page d'erreur avec un message spécifique
-                return RedirectToAction("Error", "Home");
+
+                return Content($"Erreur : {ex.Message}"); 
             }
         }
     }

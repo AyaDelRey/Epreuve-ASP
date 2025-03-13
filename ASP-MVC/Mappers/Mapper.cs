@@ -1,5 +1,6 @@
 ﻿using BLL.Entities;
 using ASP_MVC.Models.Jeu;
+using ASP_MVC.Models.Utilisateur;
 
 namespace ASP_MVC.Mappers
 {
@@ -20,6 +21,18 @@ namespace ASP_MVC.Mappers
                 MinPlayers = jeu.MinPlayers,
                 MaxPlayers = jeu.MaxPlayers,
                 DurationMinutes = jeu.DurationMinutes
+            };
+        }
+
+        public static UtilisateurListItem ToListItem(this Utilisateur utilisateur)
+        {
+            if (utilisateur == null) throw new ArgumentNullException(nameof(utilisateur));
+
+            return new UtilisateurListItem
+            {
+                Utilisateur_Id = utilisateur.Utilisateur_Id,
+                Pseudo = utilisateur.Pseudo,
+                Email = utilisateur.Email
             };
         }
     }
