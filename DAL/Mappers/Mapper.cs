@@ -20,12 +20,12 @@ namespace DAL.Mappers
                 Jeu_Id = (Guid)record[nameof(Jeu.Jeu_Id)],
                 Nom = (string)record[nameof(Jeu.Nom)],
                 Description = (string)record[nameof(Jeu.Description)],
-                MinAge = (int)record[nameof(Jeu.MinAge)],
-                MaxAge = (int)record[nameof(Jeu.MaxAge)],
-                MinPlayers = (int)record[nameof(Jeu.MinPlayers)],
-                MaxPlayers = (int)record[nameof(Jeu.MaxPlayers)],
-                DurationMinutes = (record[nameof(Jeu.DurationMinutes)] is DBNull) ? null : (decimal?)record[nameof(Jeu.DurationMinutes)],
-                CreationDate = (DateTime)record[nameof(Jeu.CreationDate)]
+                MinAge = (int)record["AgeMin"],
+                MaxAge = (int)record["AgeMax"],
+                MinPlayers = (int)record["NbJoueurMin"],
+                MaxPlayers = (int)record["NbJoueurMax"],
+                DurationMinutes = (record["DureeMinute"] is DBNull) ? null : (decimal?)record["DureeMinute"],
+                CreationDate = (DateTime)record["DateCreation"]
             };
         }
         // Mapper pour l'entité Utilisateur
