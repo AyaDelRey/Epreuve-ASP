@@ -68,12 +68,15 @@ namespace BLL.Services
             _utilisateurRepository.Delete(utilisateurId);
         }
 
-        public Guid CheckPassword(string email, string password)
+        public Utilisateur GetByEmailAndPassword(string email, string password)
         {
-            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("L'email ne peut pas être vide.", nameof(email));
-            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Le mot de passe ne peut pas être vide.", nameof(password));
+            // Appel à la méthode DAL pour récupérer l'utilisateur
+            var utilisateurDAL = _utilisateurRepository.GetByEmailAndPassword(email, password);
 
-            return _utilisateurRepository.CheckPassword(email, password);
+            if (utilisateurDAL == null) return null; // Si aucun utilisateur n'est trouvé
+
+            // Mapping explicite de l'entité DAL à l'entité BLL
+            return utilisateurDAL.ToBLL(); // Utilisation du Mapper pour convertir l'entité
         }
     }
 }

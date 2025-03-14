@@ -9,11 +9,12 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
--- Ajout des utilisateurs
-INSERT INTO dbo.Utilisateur (Utilisateur_Id, Email, Password, Salt, Pseudo, CreatedAt)
+-- Insérer des utilisateurs avec un mot de passe haché
+INSERT INTO dbo.Utilisateur (Utilisateur_Id, Email, Password, Pseudo, CreatedAt)
 VALUES 
-    (NEWID(), 'john.doe@example.com', HASHBYTES('SHA2_512', 'password1' + CAST(NEWID() AS NVARCHAR(36))), NEWID(), 'JohnDoe', GETDATE()),
-    (NEWID(), 'jane.smith@example.com', HASHBYTES('SHA2_512', 'password2' + CAST(NEWID() AS NVARCHAR(36))), NEWID(), 'JaneSmith', GETDATE());
+    (NEWID(), 'john.doe@example.com', HASHBYTES('SHA2_512', '123'), 'JohnDoe', GETDATE()),
+    (NEWID(), 'jane.smith@example.com', HASHBYTES('SHA2_512', '123'), 'JaneSmith', GETDATE());
+
 
 -- Ajout des jeux
 INSERT INTO dbo.Jeux (Jeu_Id, Nom, Description, AgeMin, AgeMax, NbJoueurMin, NbJoueurMax, DureeMinute, DateCreation)

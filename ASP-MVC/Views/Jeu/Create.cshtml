@@ -55,3 +55,8 @@
 </form>
 
 <a href="@Url.Action("Index", "Jeu")" class="btn btn-secondary">Retour à la liste</a>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

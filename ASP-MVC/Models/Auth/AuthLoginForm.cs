@@ -11,12 +11,7 @@ namespace ASP_MVC.Models.Auth
 
         [DisplayName("Mot de passe : ")]
         [Required(ErrorMessage = "Le champ 'Mot de passe' est obligatoire.")]
-        [MinLength(8, ErrorMessage = "Le champ 'Mot de passe' doit contenir au minimum 8 caractères.")]
-        [MaxLength(32, ErrorMessage = "Le champ 'Mot de passe' doit contenir au maximum 32 caractères.")]
-        [RegularExpression(@"^.*(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\-_+=\.()\[\]$µ£\\/*§?{}]).*", ErrorMessage = "Le champ 'Mot de passe' doit contenir au minimum une minuscule, une majuscule, un chiffre et un symbole.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        public string Pseudo {  get; set; }
     }
 }

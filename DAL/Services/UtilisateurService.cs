@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -115,19 +116,44 @@ namespace DAL.Services
             }
         }
 
-        public Guid CheckPassword(string email, string password)
+        public Utilisateur GetByEmailAndPassword(string email, string password)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SP_CheckPassword";
+                    command.CommandText = "SP_Get_Utilisateur_By_Email_And_Password";
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue(nameof(email), email);
-                    command.Parameters.AddWithValue(nameof(password), password);
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    // Hacher le mot de passe en byte[] et l'envoyer correctement
+                    byte[] hashedPassword = ComputeSha512Hash(password);
+                    command.Parameters.Add("@Password", SqlDbType.VarBinary, 64).Value = hashedPassword;
+
                     connection.Open();
-                    return (Guid)command.ExecuteScalar();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.ToUtilisateur();
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
                 }
+            }
+        }
+
+        // Méthode pour hacher le mot de passe en C#
+        public static byte[] ComputeSha512Hash(string password)
+        {
+            using (SHA512 shaM = new SHA512Managed())
+            {
+                byte[] textData = Encoding.UTF8.GetBytes(password);
+                return shaM.ComputeHash(textData); // Retourne directement un byte[]
             }
         }
     }

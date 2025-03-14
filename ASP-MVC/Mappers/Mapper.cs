@@ -4,6 +4,8 @@ using ASP_MVC.Models.Utilisateur;
 using ASP_MVC.Models.Tag;
 using DAL.Entities;
 using Tag = BLL.Entities.Tag;
+using ASP_MVC.Models.Jeux;
+using BLLJeu = BLL.Entities.Jeu;
 
 namespace ASP_MVC.Mappers
 {
@@ -61,6 +63,24 @@ namespace ASP_MVC.Mappers
                 utilisateur.Password,
                 DateTime.Now
                 );
+        }
+
+        // Nouvelle méthode pour convertir JeuCreateForm en Jeu (BLL)
+        public static BLLJeu ToBLL(this JeuCreateForm jeuCreateForm)
+        {
+            if (jeuCreateForm == null) throw new ArgumentNullException(nameof(jeuCreateForm));
+
+            return new BLLJeu(
+                Guid.NewGuid(),            // Création d'un nouvel identifiant pour le jeu
+                jeuCreateForm.Nom,         // Nom du jeu
+                jeuCreateForm.Description, // Description du jeu
+                jeuCreateForm.MinAge,      // Âge minimum
+                jeuCreateForm.MaxAge,      // Âge maximum
+                jeuCreateForm.MinPlayers,  // Nombre minimum de joueurs
+                jeuCreateForm.MaxPlayers,  // Nombre maximum de joueurs
+                jeuCreateForm.DurationMinutes, // Durée en minutes
+                DateOnly.FromDateTime(DateTime.Now) // Date de création (actuelle)
+            );
         }
     }
 }

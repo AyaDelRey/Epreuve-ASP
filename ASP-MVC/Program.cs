@@ -16,25 +16,37 @@ namespace ASP_MVC
             // Ajouter les services à l'application
             builder.Services.AddControllersWithViews();
 
-            // Ajouter l'accès au HttpContext pour gérer les sessions
+            // Ajout d'implémentation du service d'accès à l'HttpContext
+            // (dans le but d'atteindre nos variables de session en dehors du controller ou de la vue)
             builder.Services.AddHttpContextAccessor();
 
             // Ajout d'implémentation des services nécessaires à l'utilisation de session :
             // AddDistributedMemoryCache : Pour le développment et debbugage
             builder.Services.AddDistributedMemoryCache();
 
+            // AddDistributedSqlServerCache : Pour un projet client, une release fonctionnelle
+            /*
+			builder.Services.AddDistributedSqlServerCache(
+				options =>
+				{
+					options.ConnectionString = builder.Configuration.GetConnectionString("Session-DB");
+					options.SchemaName = "dbo";
+					options.TableName = "Session";
+				}
+				);
+			*/
             builder.Services.AddSession(
-                    options => {
-                                options.Cookie.Name = "CookieWad24";
-                                options.Cookie.HttpOnly = true;
-                                options.Cookie.IsEssential = true;
-                                options.IdleTimeout = TimeSpan.FromMinutes(10);
-                                });
+                options => {
+                    options.Cookie.Name = "CookieWad24";
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.IsEssential = true;
+                    options.IdleTimeout = TimeSpan.FromMinutes(10);
+                });
             builder.Services.Configure<CookiePolicyOptions>(options => {
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
                 options.Secure = CookieSecurePolicy.Always;
-                                 });
+            });
 
 
             // Ajout du service de sessionManager
@@ -50,24 +62,26 @@ namespace ASP_MVC
 
             // Ajouter les services pour JeuxUtilisateur (BLL et DAL)
             builder.Services.AddScoped<IJeuxUtilisateurRepository<BLL.Entities.JeuxUtilisateur>, BLL.Services.JeuxUtilisateurService>();
-            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();  
+            builder.Services.AddScoped<IJeuxUtilisateurRepository<DAL.Entities.Jeux_Utilisateur>, DAL.Services.JeuxUtilisateurService>();
             // Service DAL pour JeuxUtilisateur
             builder.Services.AddScoped<ITagRepository<BLL.Entities.Tag>, BLL.Services.TagService>();
-            builder.Services.AddScoped<ITagRepository<DAL.Entities.Tag>, DAL.Services.TagService>(); 
+            builder.Services.AddScoped<ITagRepository<DAL.Entities.Tag>, DAL.Services.TagService>();
             // Service DAL pour Tag
 
 
             var app = builder.Build();
 
-            // Configurer le pipeline de l'application
+            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseSession();
             app.UseCookiePolicy();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

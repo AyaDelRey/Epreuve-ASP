@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ASP_MVC.Models.Jeux
 {
@@ -25,5 +27,8 @@ namespace ASP_MVC.Models.Jeux
 
         [Range(0.1, double.MaxValue, ErrorMessage = "La durée doit être supérieure à 0.")]
         public decimal DurationMinutes { get; set; }
+
+
     }
+
 }

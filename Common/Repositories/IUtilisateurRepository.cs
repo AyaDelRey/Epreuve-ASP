@@ -8,6 +8,6 @@ namespace Common.Repositories
 {
     public interface IUtilisateurRepository<TUtilisateur> : ICRUDRepository<TUtilisateur, Guid>
     {
-        Guid CheckPassword(string email, string password);
+        TUtilisateur GetByEmailAndPassword(string email, string password);
     }
 }

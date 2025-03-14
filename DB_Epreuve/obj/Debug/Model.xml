@@ -168,118 +168,6 @@
 			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
-					<References Name="[dbo].[Jeux_Tag]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Jeux_Tag].[Jeu_Tag_Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[NEWID()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Emprunt]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[NEWID()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Utilisateur]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Utilisateur].[Utilisateur_Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[GETDATE()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Utilisateur]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Utilisateur].[CreatedAt]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[NEWID()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Jeux]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Jeux].[Jeu_Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[GETDATE()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Jeux]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Jeux].[DateCreation]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[NEWID()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
-					<References Name="[dbo].[Tag]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="ForColumn">
-				<Entry>
-					<References Name="[dbo].[Tag].[Tag_Id]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
-		</Element>
-		<Element Type="SqlDefaultConstraint">
-			<Property Name="DefaultExpressionScript">
-				<Value><![CDATA[NEWID()]]></Value>
-			</Property>
-			<Relationship Name="DefiningTable">
-				<Entry>
 					<References Name="[dbo].[Jeux_Utilisateur]" />
 				</Entry>
 			</Relationship>
@@ -288,7 +176,7 @@
 					<References Name="[dbo].[Jeux_Utilisateur].[Jeux_Utilisateur_Id]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="10" />
 		</Element>
 		<Element Type="SqlDefaultConstraint">
 			<Property Name="DefaultExpressionScript">
@@ -304,26 +192,119 @@
 					<References Name="[dbo].[Jeux_Utilisateur].[DateAcquisition]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="11" />
 		</Element>
-		<Element Type="SqlPrimaryKeyConstraint">
-			<Relationship Name="ColumnSpecifications">
-				<Entry>
-					<Element Type="SqlIndexedColumnSpecification">
-						<Relationship Name="Column">
-							<Entry>
-								<References Name="[dbo].[Jeux_Tag].[Jeu_Tag_Id]" />
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[NEWID()]]></Value>
+			</Property>
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[dbo].[Jeux_Tag]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Jeux_Tag].[Jeu_Tag_Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="12" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[NEWID()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Tag]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Tag].[Tag_Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="13" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[NEWID()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Emprunt]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="14" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[NEWID()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Jeux]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Jeux].[Jeu_Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="15" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[GETDATE()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Jeux]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Jeux].[DateCreation]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="16" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[NEWID()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Utilisateur]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Utilisateur_Id]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="17" />
+		</Element>
+		<Element Type="SqlDefaultConstraint">
+			<Property Name="DefaultExpressionScript">
+				<Value><![CDATA[GETDATE()]]></Value>
+			</Property>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Utilisateur]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForColumn">
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[CreatedAt]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="18" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint">
 			<Relationship Name="ColumnSpecifications">
@@ -340,6 +321,25 @@
 			<Relationship Name="DefiningTable">
 				<Entry>
 					<References Name="[dbo].[Jeux_Utilisateur]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="19" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Jeux_Tag].[Jeu_Tag_Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Jeux_Tag]" />
 				</Entry>
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="20" />
@@ -396,7 +396,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="11" />
+						<AttachedAnnotation Disambiguator="14" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -506,6 +506,7 @@
 			</Relationship>
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="23" />
 			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="24" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Emprunt_Jeux_Utilisateur]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -529,7 +530,7 @@
 					<References Name="[dbo].[Jeux_Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="23" />
+			<AttachedAnnotation Disambiguator="24" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Emprunt_Utilisateur]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -553,7 +554,7 @@
 					<References Name="[dbo].[Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="24" />
+			<AttachedAnnotation Disambiguator="25" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Jeux_Tags_Jeu]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -577,7 +578,7 @@
 					<References Name="[dbo].[Jeux]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="25" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Jeux_Tags_Tag]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -601,7 +602,7 @@
 					<References Name="[dbo].[Tag]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="26" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Utilisateur_Jeux_Jeux]">
 			<Property Name="OnDeleteAction" Value="1" />
@@ -625,7 +626,7 @@
 					<References Name="[dbo].[Jeux]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="27" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
 		</Element>
 		<Element Type="SqlForeignKeyConstraint" Name="[dbo].[FK_Utilisateur_Jeux_Utilisateur]">
 			<Relationship Name="Columns">
@@ -648,7 +649,7 @@
 					<References Name="[dbo].[Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="28" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Jeux]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -667,7 +668,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="14" />
+						<AttachedAnnotation Disambiguator="15" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -804,8 +805,8 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="29" />
-						<AttachedAnnotation Disambiguator="15" />
+						<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
+						<AttachedAnnotation Disambiguator="16" />
 					</Element>
 				</Entry>
 			</Relationship>
@@ -832,8 +833,8 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="19" />
-						<AttachedAnnotation Disambiguator="10" />
+						<AttachedAnnotation Disambiguator="20" />
+						<AttachedAnnotation Disambiguator="12" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -874,9 +875,9 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="25" />
 			<AttachedAnnotation Disambiguator="26" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="30" />
+			<AttachedAnnotation Disambiguator="27" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Jeux_Utilisateur]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -895,8 +896,8 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="20" />
-						<AttachedAnnotation Disambiguator="17" />
+						<AttachedAnnotation Disambiguator="19" />
+						<AttachedAnnotation Disambiguator="10" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -944,7 +945,7 @@
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="18" />
+						<AttachedAnnotation Disambiguator="11" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -970,10 +971,29 @@
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
+			<AttachedAnnotation Disambiguator="29" />
 			<AttachedAnnotation Disambiguator="28" />
-			<AttachedAnnotation Disambiguator="27" />
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="31" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
 			<AttachedAnnotation Disambiguator="22" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Emprunt]">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Emprunt]" />
+				</Entry>
+			</Relationship>
+			<AttachedAnnotation Disambiguator="23" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Jeux]">
 			<Relationship Name="ColumnSpecifications">
@@ -992,7 +1012,7 @@
 					<References Name="[dbo].[Jeux]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="29" />
+			<AttachedAnnotation Disambiguator="30" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Tag]">
 			<Relationship Name="ColumnSpecifications">
@@ -1011,7 +1031,7 @@
 					<References Name="[dbo].[Tag]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="32" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
 		</Element>
 		<Element Type="SqlPrimaryKeyConstraint" Name="[dbo].[PK_Utilisateur]">
 			<Relationship Name="ColumnSpecifications">
@@ -1030,7 +1050,7 @@
 					<References Name="[dbo].[Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="33" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
 		</Element>
 		<Element Type="SqlScalarFunction" Name="[dbo].[SF_SaltAndHash]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1115,124 +1135,6 @@ END]]></Value>
 					</Element>
 				</Entry>
 			</Relationship>
-		</Element>
-		<Element Type="SqlProcedure" Name="[dbo].[SP_Check_Password]">
-			<Property Name="BodyScript">
-				<Value><![CDATA[
-BEGIN
-    DECLARE @Salt UNIQUEIDENTIFIER;
-    DECLARE @StoredPassword VARBINARY(64);
-    
-    -- Récupérer le sel et le mot de passe haché
-    SELECT @Salt = Salt, 
-           @StoredPassword = Password
-    FROM dbo.Utilisateur
-    WHERE Email = @Email;
-
-    -- Si le sel existe (l'email est valide)
-    IF @Salt IS NOT NULL
-    BEGIN
-        -- Saler et hacher le mot de passe fourni
-        DECLARE @HashedPassword VARBINARY(64);
-        SET @HashedPassword = dbo.SF_SaltAndHash(@Password, @Salt);
-
-        -- Vérifier si le mot de passe correspond
-        IF @HashedPassword = @StoredPassword
-        BEGIN
-            -- Si le mot de passe est correct
-            SELECT 1 AS IsValid;  -- 1 = Valide
-        END
-        ELSE
-        BEGIN
-            -- Si le mot de passe est incorrect
-            SELECT 0 AS IsValid;  -- 0 = Invalide
-        END
-    END
-    ELSE
-    BEGIN
-        -- Si l'email n'existe pas
-        SELECT 0 AS IsValid;  -- 0 = Invalide
-    END
-END;]]></Value>
-			</Property>
-			<Property Name="IsAnsiNullsOn" Value="True" />
-			<Relationship Name="BodyDependencies">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
-				</Entry>
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[varbinary]" />
-				</Entry>
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[varbinary]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Utilisateur]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Utilisateur].[Salt]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Utilisateur].[Password]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[Utilisateur].[Email]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[SP_Check_Password].[@Email]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[SF_SaltAndHash]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[SP_Check_Password].[@Password]" />
-				</Entry>
-			</Relationship>
-			<Relationship Name="Parameters">
-				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Check_Password].[@Email]">
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="320" />
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Check_Password].[@Password]">
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Property Name="Length" Value="32" />
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-			</Relationship>
-			<Relationship Name="Schema">
-				<Entry>
-					<References ExternalSource="BuiltIns" Name="[dbo]" />
-				</Entry>
-			</Relationship>
-			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="1110" />
-				<Property Name="StartLine" Value="1" />
-				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Check_Password]&#xD;&#xA;    @Email NVARCHAR(320),&#xD;&#xA;    @Password NVARCHAR(32)&#xD;&#xA;AS" />
-			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[SP_Cloturer_Emprunt]">
 			<Property Name="BodyScript">
@@ -1730,13 +1632,66 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Create_Jeu]&#xD;&#xA;@Utilisateur_Id UNIQUEIDENTIFIER,    -- L'ID de l'utilisateur qui ajoute le jeu&#xD;&#xA;    @Nom VARCHAR(255),                    -- Le nom du jeu&#xD;&#xA;    @Description TEXT,                    -- La description du jeu&#xD;&#xA;    @AgeMin INT,                          -- L'âge minimum recommandé pour jouer&#xD;&#xA;    @AgeMax INT,                          -- L'âge maximum recommandé pour jouer&#xD;&#xA;    @NbJoueurMin INT,                     -- Le nombre minimum de joueurs&#xD;&#xA;    @NbJoueurMax INT,                     -- Le nombre maximum de joueurs&#xD;&#xA;    @DureeMinute DECIMAL(3,1),            -- La durée approximative du jeu en minutes&#xD;&#xA;    @Etat VARCHAR(50)                     -- L'état du jeu (Neuf, Abimé, Incomplet)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Create_Tag]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    INSERT INTO dbo.Tag (Nom)
+    VALUES (@Nom);
+
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Tag]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Tag].[Nom]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_Create_Tag].[@Nom]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Create_Tag].[@Nom]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="255" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="159" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Create_Tag]&#xD;&#xA;    @Nom NVARCHAR(255)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[SP_Create_Utilisateur]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
 BEGIN
     -- Insérer l'utilisateur avec le mot de passe haché, le sel et le pseudo dans la table Utilisateur
-    INSERT INTO dbo.Utilisateur (Email, Password, Salt, Pseudo, CreatedAt)
-    VALUES (@Email, @Password, @Salt, @Pseudo, GETDATE());
+    INSERT INTO dbo.Utilisateur (Email, Password, Pseudo, CreatedAt)
+    VALUES (@Email, @Password, @Pseudo, GETDATE());
 END;]]></Value>
 			</Property>
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -1751,9 +1706,6 @@ END;]]></Value>
 					<References Name="[dbo].[Utilisateur].[Password]" />
 				</Entry>
 				<Entry>
-					<References Name="[dbo].[Utilisateur].[Salt]" />
-				</Entry>
-				<Entry>
 					<References Name="[dbo].[Utilisateur].[Pseudo]" />
 				</Entry>
 				<Entry>
@@ -1764,9 +1716,6 @@ END;]]></Value>
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[SP_Create_Utilisateur].[@Password]" />
-				</Entry>
-				<Entry>
-					<References Name="[dbo].[SP_Create_Utilisateur].[@Salt]" />
 				</Entry>
 				<Entry>
 					<References Name="[dbo].[SP_Create_Utilisateur].[@Pseudo]" />
@@ -1806,21 +1755,6 @@ END;]]></Value>
 					</Element>
 				</Entry>
 				<Entry>
-					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Create_Utilisateur].[@Salt]">
-						<Relationship Name="Type">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
 					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Create_Utilisateur].[@Pseudo]">
 						<Relationship Name="Type">
 							<Entry>
@@ -1843,10 +1777,11 @@ END;]]></Value>
 				</Entry>
 			</Relationship>
 			<Annotation Type="SysCommentsObjectAnnotation">
-				<Property Name="Length" Value="548" />
+				<Property Name="CreateOffset" Value="2" />
+				<Property Name="Length" Value="462" />
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
-				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Create_Utilisateur]&#xD;&#xA;    @Email NVARCHAR(320),&#xD;&#xA;    @Password VARBINARY(64),         -- Le mot de passe déjà salé et haché&#xD;&#xA;    @Salt UNIQUEIDENTIFIER,         -- Le sel généré pour cet utilisateur&#xD;&#xA;    @Pseudo NVARCHAR(64)            -- Le pseudo de l'utilisateur&#xD;&#xA;AS" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;CREATE PROCEDURE [dbo].[SP_Create_Utilisateur]&#xD;&#xA;    @Email NVARCHAR(320),&#xD;&#xA;    @Password VARBINARY(64),         -- Le mot de passe déjà salé et haché&#xD;&#xA;    @Pseudo NVARCHAR(64)            -- Le pseudo de l'utilisateur&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[SP_Delete_Jeu]">
@@ -1973,6 +1908,291 @@ END;]]></Value>
 				<Property Name="StartLine" Value="1" />
 				<Property Name="StartColumn" Value="1" />
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Delete_Utilisateur]&#xD;&#xA;    @Utilisateur_Id UNIQUEIDENTIFIER&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_All_Emprunt]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        Emprunt_Id,
+        Jeux_Utilisateur_Id,
+        Emprunteur_Id,
+        DateEmprunt,
+        DateRetour,
+        EvaluationPreteur,
+        EvaluationEmprunteur
+    FROM dbo.Emprunt;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Emprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Jeux_Utilisateur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunteur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateEmprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateRetour]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationPreteur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationEmprunteur]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="299" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_All_Emprunt]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_All_Jeu]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Sélection de toutes les colonnes nécessaires
+    SELECT 
+        Jeu_Id,                -- Identifiant du jeu
+        Nom,                   -- Nom du jeu
+        Description,           -- Description du jeu
+        AgeMin,                -- Âge minimum recommandé
+        AgeMax,                -- Âge maximum recommandé
+        NbJoueurMin,           -- Nombre minimum de joueurs
+        NbJoueurMax,           -- Nombre maximum de joueurs
+        DureeMinute,           -- Durée approximative en minutes
+        DateCreation           -- Date de création du jeu
+    FROM dbo.Jeux;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Jeux]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[Jeu_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[Nom]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[Description]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[AgeMin]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[AgeMax]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[NbJoueurMin]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[NbJoueurMax]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[DureeMinute]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Jeux].[DateCreation]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="682" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_All_Jeu]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_All_Tag]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        Tag_Id,
+        Nom
+    FROM dbo.Tag;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Tag]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Tag].[Tag_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Tag].[Nom]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="145" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_All_Tag]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_All_Utilisateur]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        Utilisateur_Id,
+        Email,
+        Password,
+        Pseudo,
+        CreatedAt,
+        DisabledAt
+    FROM dbo.Utilisateur;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Utilisateur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Utilisateur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Password]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Pseudo]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[CreatedAt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[DisabledAt]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="248" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_All_Utilisateur]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_Emprunt_ByUser]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    -- Sélectionner tous les emprunts associés à l'utilisateur
+    SELECT 
+        e.Emprunt_Id,              -- L'identifiant unique de l'emprunt
+        e.Jeux_Utilisateur_Id,     -- L'identifiant de la relation entre l'utilisateur et le jeu
+        e.Emprunteur_Id,           -- L'utilisateur qui emprunte le jeu
+        e.DateEmprunt,             -- La date de l'emprunt
+        e.DateRetour,              -- La date de retour prévue ou effective
+        e.EvaluationPreteur,       -- L'évaluation donnée par le prêteur
+        e.EvaluationEmprunteur     -- L'évaluation donnée par l'emprunteur
+    FROM dbo.Emprunt e
+    WHERE e.Emprunteur_Id = @Utilisateur_Id;  -- On filtre par l'ID de l'emprunteur
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Emprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Jeux_Utilisateur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunteur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateEmprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateRetour]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationPreteur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationEmprunteur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_Get_Emprunt_ByUser].[@Utilisateur_Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Get_Emprunt_ByUser].[@Utilisateur_Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="881" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_Emprunt_ByUser]&#xD;&#xA;    @Utilisateur_Id UNIQUEIDENTIFIER  -- L'ID de l'utilisateur pour lequel on récupère les emprunts&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_Jeu]">
@@ -2283,6 +2503,218 @@ END;]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_Get_Utilisateur]&#xD;&#xA;    @Utilisateur_Id UNIQUEIDENTIFIER&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_Get_Utilisateur_By_Email_And_Password]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SELECT *
+    FROM Utilisateur
+    WHERE Email = @Email 
+      AND Password = CONVERT(VARBINARY(64), @Password);
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Utilisateur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_Get_Utilisateur_By_Email_And_Password].[@Email]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Utilisateur].[Password]" />
+				</Entry>
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[varbinary]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_Get_Utilisateur_By_Email_And_Password].[@Password]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Get_Utilisateur_By_Email_And_Password].[@Email]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="255" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_Get_Utilisateur_By_Email_And_Password].[@Password]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="64" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[varbinary]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="CreateOffset" Value="2" />
+				<Property Name="Length" Value="285" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="&#xD;&#xA;CREATE PROCEDURE [dbo].[SP_Get_Utilisateur_By_Email_And_Password]&#xD;&#xA;    @Email NVARCHAR(255),&#xD;&#xA;    @Password VARBINARY(64) -- Changer le type ici !&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_GetById_Emprunt]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        Emprunt_Id,
+        Jeux_Utilisateur_Id,
+        Emprunteur_Id,
+        DateEmprunt,
+        DateRetour,
+        EvaluationPreteur,
+        EvaluationEmprunteur
+    FROM dbo.Emprunt
+    WHERE Emprunt_Id = @Emprunt_Id;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Emprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunt_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Jeux_Utilisateur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[Emprunteur_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateEmprunt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[DateRetour]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationPreteur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Emprunt].[EvaluationEmprunteur]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_GetById_Emprunt].[@Emprunt_Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_GetById_Emprunt].[@Emprunt_Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="369" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_GetById_Emprunt]&#xD;&#xA;    @Emprunt_Id UNIQUEIDENTIFIER&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[SP_GetById_Tag]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+    SET NOCOUNT ON;
+    
+    SELECT 
+        Tag_Id,
+        Nom
+    FROM dbo.Tag
+    WHERE Tag_Id = @Tag_Id;
+END;]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Tag]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Tag].[Tag_Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Tag].[Nom]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[SP_GetById_Tag].[@Tag_Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[SP_GetById_Tag].[@Tag_Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="203" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[SP_GetById_Tag]&#xD;&#xA;    @Tag_Id UNIQUEIDENTIFIER&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[SP_Update_Jeu]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[
@@ -2469,7 +2901,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="16" />
+						<AttachedAnnotation Disambiguator="13" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2496,7 +2928,7 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="32" />
+			<AttachedAnnotation Disambiguator="33" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UQ_Email]">
 			<Relationship Name="ColumnSpecifications">
@@ -2515,7 +2947,7 @@ END;]]></Value>
 					<References Name="[dbo].[Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="34" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UQ_Jeux_Tags]">
 			<Relationship Name="ColumnSpecifications">
@@ -2543,7 +2975,7 @@ END;]]></Value>
 					<References Name="[dbo].[Jeux_Tag]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="30" />
+			<AttachedAnnotation Disambiguator="31" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UQ_Pseudo]">
 			<Relationship Name="ColumnSpecifications">
@@ -2562,7 +2994,7 @@ END;]]></Value>
 					<References Name="[dbo].[Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="35" />
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="36" />
 		</Element>
 		<Element Type="SqlUniqueConstraint" Name="[dbo].[UQ_Utilisateur_Jeux]">
 			<Relationship Name="ColumnSpecifications">
@@ -2590,7 +3022,7 @@ END;]]></Value>
 					<References Name="[dbo].[Jeux_Utilisateur]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="31" />
+			<AttachedAnnotation Disambiguator="32" />
 		</Element>
 		<Element Type="SqlTable" Name="[dbo].[Utilisateur]">
 			<Property Name="IsAnsiNullsOn" Value="True" />
@@ -2609,7 +3041,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="12" />
+						<AttachedAnnotation Disambiguator="17" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2639,22 +3071,6 @@ END;]]></Value>
 									<Relationship Name="Type">
 										<Entry>
 											<References ExternalSource="BuiltIns" Name="[varbinary]" />
-										</Entry>
-									</Relationship>
-								</Element>
-							</Entry>
-						</Relationship>
-					</Element>
-				</Entry>
-				<Entry>
-					<Element Type="SqlSimpleColumn" Name="[dbo].[Utilisateur].[Salt]">
-						<Property Name="IsNullable" Value="False" />
-						<Relationship Name="TypeSpecifier">
-							<Entry>
-								<Element Type="SqlTypeSpecifier">
-									<Relationship Name="Type">
-										<Entry>
-											<References ExternalSource="BuiltIns" Name="[uniqueidentifier]" />
 										</Entry>
 									</Relationship>
 								</Element>
@@ -2694,7 +3110,7 @@ END;]]></Value>
 								</Element>
 							</Entry>
 						</Relationship>
-						<AttachedAnnotation Disambiguator="13" />
+						<AttachedAnnotation Disambiguator="18" />
 					</Element>
 				</Entry>
 				<Entry>
@@ -2719,9 +3135,9 @@ END;]]></Value>
 					<References ExternalSource="BuiltIns" Name="[dbo]" />
 				</Entry>
 			</Relationship>
-			<AttachedAnnotation Disambiguator="34" />
 			<AttachedAnnotation Disambiguator="35" />
-			<AttachedAnnotation Disambiguator="33" />
+			<AttachedAnnotation Disambiguator="36" />
+			<AttachedAnnotation Disambiguator="34" />
 		</Element>
 	</Model>
 </DataSchemaModel>

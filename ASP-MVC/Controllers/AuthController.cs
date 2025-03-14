@@ -39,29 +39,32 @@ namespace ASP_MVC.Controllers
 
         [HttpPost]
         [AnonymousNeeded]
-        public IActionResult Login(AuthLoginForm form)
+        public IActionResult Login(AuthLoginForm model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (!ModelState.IsValid) throw new ArgumentException(nameof(form));
-                Guid id = _userService.CheckPassword(form.Email, form.Password);
-                //C'est ici que nous définirons la variable de session
-                Utilisateur user = _userService.Get(id);
+                var utilisateur = _userService.GetByEmailAndPassword(model.Email, model.Password);
 
-                ConnectedUser sessionUser = new ConnectedUser()
+                if (utilisateur != null)
                 {
-                    User_Id = user.Utilisateur_Id,
-                    Email = user.Email,
-                    ConnectedAt = DateTime.Now,
-                    Pseudo = user.Pseudo.ToString()
-                };
-                _sessionManager.Login(sessionUser);
-                return RedirectToAction("Details", "User", new { id = id });
+                    // Enregistrer l'utilisateur dans la session
+                    _sessionManager.Login(new ConnectedUser
+                    {
+                        User_Id = utilisateur.Utilisateur_Id,
+                        Email = utilisateur.Email,
+                        Pseudo = utilisateur.Pseudo,
+                        ConnectedAt = DateTime.Now
+                    });
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    // Email ou mot de passe incorrect
+                    ModelState.AddModelError("", "Identifiants incorrects");
+                }
             }
-            catch (Exception)
-            {
-                return View();
-            }
+
+            return View(model);
         }
 
         [ConnectionNeeded]

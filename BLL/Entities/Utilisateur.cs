@@ -10,6 +10,7 @@ namespace BLL.Entities
         public string Pseudo { get; private set; }      // Pseudonyme de l'utilisateur
         public DateTime CreatedAt { get; private set; } // Date de création du compte
         public DateTime? DisabledAt { get; private set; } // Date de désactivation du compte (null si actif)
+        public List<Jeu> Jeux { get; internal set; }
 
         // Constructeur principal
         public Utilisateur(Guid utilisateur_Id, string email, string password, string pseudo, DateTime createdAt, DateTime? disabledAt = null)
